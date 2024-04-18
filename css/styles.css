@@ -39,6 +39,17 @@ button {
     }
 }
 
+@keyframes fade-in-from-left {
+    0% {
+        opacity: 0;
+	transform: translateX(-50px);
+    } 
+
+    100% {
+	opacity: 1;
+	transform: translateX(0px);
+    }
+}
 
 
 /* Styles */
@@ -105,6 +116,8 @@ button {
 .sidebar {
     background-color: #10171A;
     width: 75px;      /*use the width for the size to be fixed and use the flex for the size to be dynamic*/
+    display: flex;
+    flex-direction: column;
 }
 
 .menu {
@@ -112,18 +125,63 @@ button {
 }
 
 .menu__button {
+    padding: 19px 0 ;   
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    position: relative;
+    transition: all 0.4s;
+    animation: fade-in-from-left 0.5s;
+    color: rgba(255, 255, 255, 0.4);
 }
 
+.menu__button:hover {
+    background-color: #2b363b;
+    color:#fff;
+    cursor: pointer;
+}
+
+.menu__button--active {
+    background-color: #2b363b;
+    color:#fff;
+
+}
+
+.menu__button--active::before {
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-color: #375BB6;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+
 .menu__icon {
-    
+    font-size: 18px;
+    margin-bottom: 3px;
 }
 
 .menu__text {
-
+    font-weight: 500;
+    font-size: 12px;
 }
+
+.footer {
+    margin-top: auto;
+    margin-bottom: 60px;
+    transform: rotate(-90deg);
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
 /* ------------------ */
 .panel {
     background-color: #2B363C;
